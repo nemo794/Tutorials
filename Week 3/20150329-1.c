@@ -1,9 +1,9 @@
 int main (void)
 {
-//Local Definitions
+    // Local Defamations
+    int a = 111;
 
-
-//Statements
+    // State Mints
 
     
     return 0;
