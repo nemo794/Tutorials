@@ -1,6 +1,6 @@
 int main (void)
 {
-    // Local Defamations
+    // Local Declarations
     int a = 111;
 
     // State Mints
