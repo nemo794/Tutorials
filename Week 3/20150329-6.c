@@ -9,9 +9,14 @@
  *
  * Write a function that receives a positive floating-point
  * number and rounds it to two decimal places.
+ * For example, 127.565031 rounds to 127.570000
+ *
  * (fyi - the book gives a hint about converting to an int first)
  *
  * Print the rounded numbers to 6 decimal places.
+ * 
+ * Test with the following data:
+ *     123.456789     123.499999    123.500001
  *
  */
 
@@ -43,10 +48,9 @@ void rndTwoDecimals (float a)
     
     num1 = a * 100;
     num2 = (int) (ceil (num1));
-    printf ("\n%d\n", num2);
     num3 = num2 / 100.0;
     
-    printf ("\nThe rounded-up number is: %1.2f\n\n", num3);
+    printf ("\nThe rounded-up number is: %1.6f\n\n", num3);
     
     return;
 }
