@@ -36,9 +36,9 @@ int main (void)
     scanf ("%f", &weeksProfit);
     printf ("Enter information for the employee:\n");
     printf ("Enter First Name: ");
-    scanf ("%s", &F_Name);
+    scanf ("%s", F_Name);
     printf ("Enter Last Name: ");
-    scanf ("%s", &L_Name);
+    scanf ("%s", L_Name);
     printf ("Enter ID Number: ");
     scanf ("%d", &IDNum);
     printf ("Enter Years of Experience: ");
