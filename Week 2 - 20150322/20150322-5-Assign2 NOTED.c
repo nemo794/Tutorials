@@ -46,7 +46,7 @@ int main (void)
     
     /* Statements */
     
-    printf ("\nEnter profit for the week: $");
+    printf ("\nEnter profit for the week: $ ");
     scanf ("%f", &weeksProfitDollars);
     printf ("Enter information for the employee:\n");
     printf ("Enter First Name: ");
@@ -57,7 +57,7 @@ int main (void)
     scanf ("%d", &IDNum);
     printf ("Enter Years of Experience: ");
     scanf ("%d", &years);
-    printf ("Enter Sales amount: $");
+    printf ("Enter Sales amount: $ ");
     scanf ("%f", &salesAmtDollars);
     
     salesAmtCents = makeIntoCents (salesAmtDollars);
@@ -71,16 +71,7 @@ int main (void)
     fedTaxCents = floor ((grossSalCents * (25.0 / 100)) + 0.5);
     totalDedCents = retirementCents + stateTaxCents + fedTaxCents;
     netSalaryCents = grossSalCents - totalDedCents;
-    
-    printf ("\nCommission in Cents: %d", commissionCents);
-    printf ("\nBonus in Cents: %d", bonusCents);
-    printf ("\nGross Salary in Cents: %d", grossSalCents);
-    printf ("\nRetirement in Cents: %d", retirementCents);
-    printf ("\nState Tax in Cents: %d", stateTaxCents);
-    printf ("\nFed Tax in Cents: %d", fedTaxCents);
-    printf ("\nTotal Deductions in Cents: %d", totalDedCents);
-    printf ("\nNet Salary in Cents: %d", netSalaryCents);
-    
+   
     
     salesAmtDollars = makeIntoDollars (salesAmtCents);
     commissionDollars = makeIntoDollars (commissionCents);
