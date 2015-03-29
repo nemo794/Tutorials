@@ -10,6 +10,7 @@
  */
 
 #include <stdio.h>
+#include <math.h>
 
 int makeIntoCents (float dollars);
 float makeIntoDollars (int cents);
@@ -62,12 +63,12 @@ int main (void)
     salesAmtCents = makeIntoCents (salesAmtDollars);
     weeksProfitCents = makeIntoCents (weeksProfitDollars);
     
-    commissionCents = salesAmtCents * (12.5 / 100);
-    bonusCents = (years * (weeksProfitCents * (0.5 / 100))) + 5000;
+    commissionCents = floor ((salesAmtCents * (12.5 / 100)) + 0.5);
+    bonusCents = floor (((years * (weeksProfitCents * (0.5 / 100))) + 5000) +0.5);
     grossSalCents = commissionCents + bonusCents;
-    retirementCents = grossSalCents * (8.0 / 100.0);
-    stateTaxCents = grossSalCents * (10.0 / 100);
-    fedTaxCents = grossSalCents * (25.0 / 100);
+    retirementCents = floor ((grossSalCents * (8.0 / 100)) + 0.5);
+    stateTaxCents = floor ((grossSalCents * (10.0 / 100)) + 0.5);
+    fedTaxCents = floor ((grossSalCents * (25.0 / 100)) + 0.5);
     totalDedCents = retirementCents + stateTaxCents + fedTaxCents;
     netSalaryCents = grossSalCents - totalDedCents;
     
