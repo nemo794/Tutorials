@@ -43,12 +43,10 @@ int main ()
     
     AssessedValueCents = AssessedValue * 100;
     
-    Intro ();
-    
     TaxableAmtCents = Calc_Taxable_Amount (AssessedValueCents);
     TaxableAmtDollars = floor ((TaxableAmtCents / 100.0) + 0.5);
     
-    PrptyTaxCents = TaxableAmtCents * TAX_RATE;
+    PrptyTaxCents = Calc_Tax(TaxableAmtCents);
     PrptyTaxDollars = floor ((PrptyTaxCents / 100.0) + 0.5);
     
     Print_Results (AssessedValue, TaxableAmtDollars, PrptyTaxDollars);
@@ -107,7 +105,7 @@ void Print_Results (float AssessedValue, float TaxableAmt, float PrptyTax)
     
     printf ("\nAssessed Value:\t\t$%1.2f", AssessedValue);
     printf ("\nTaxable Amount:\t\t$%1.2f", TaxableAmt);
-    printf ("\nTax Rate for:\t\t$%1.2f%%", TaxRateFormatted);
+    printf ("\nTax Rate for:\t\t$ 1.2f%%", TaxRateFormatted);
     printf ("\nProperty Tax:\t\t$%1.2f\n\n", PrptyTax);
     
     return;

@@ -23,14 +23,14 @@
 #include <stdio.h>
 #include <math.h>
 
-void rndTwoDecimals (float a);
+void rndTwoDecimals (double a);
 
 int main ()
 {
-    float num1;
+    double num1;
     
     printf ("\n\nEnter a positive number with 1-6 decimal places: ");
-    scanf ("%f", &num1);
+    scanf ("%lf", &num1);
     
     rndTwoDecimals (num1);
     
@@ -40,17 +40,17 @@ int main ()
 
 // ===== This is  a function that receives a positive floating-point
 //       number and rounds it to two decimal places. ====
-void rndTwoDecimals (float a)
+void rndTwoDecimals (double a)
 {
-    float num1;
+    double num1;
     int num2;
-    float num3;
+    double num3;
     
     num1 = a * 100;
     num2 = floor ((num1) + 0.5);
     num3 = num2 / 100.0;
     
-    printf ("\nThe rounded number is: %1.6f\n\n", num3);
+    printf ("\nThe rounded number is: %lf\n\n", num3);
     
     return;
 }
