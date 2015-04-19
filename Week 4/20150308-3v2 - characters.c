@@ -25,23 +25,27 @@
 
 
 char vehicleAndHrs (float *hrs);
-float parkingCharge (char type, float hrs, int *rate);
+float parkingCharge (char type, float hrs);
+int getRate (char type);
+void printType (char type);
 
 int main ()
 {
     //Local Definitions
-    char type = 't';
+    char type = 'x';
     float hrs;
     float totalOwed;
     int rate;
     
     //Statements
     type = vehicleAndHrs (&hrs);
-    totalOwed = parkingCharge (type, hrs, &rate);
+    totalOwed = parkingCharge (type, hrs);
+    rate = getRate(type);
     
-    
-    printf ("\n\nYou parked a %c for %f hrs at $%d/hr", type, hrs, rate);
-    printf ("\nand owe $%6.2f.", totalOwed);
+    printf ("\n\nYou parked a ");
+    printType(type);
+    printf (" for %4.2f hrs at $%d/hr", hrs, rate);
+    printf ("\nand owe $%1.2f.\n\n", totalOwed);
     
     return 0;
 }
@@ -52,7 +56,7 @@ int main ()
 char vehicleAndHrs (float *hrs)
 {
     //Local Definitions
-    char type = 't';
+    char type = 'x';
     
     //Statements
     printf("\n\nMenu Options:");
@@ -60,42 +64,69 @@ char vehicleAndHrs (float *hrs)
     printf(  "\nb = bus");
     printf(  "\nt = truck");
     printf("\n\nEnter c, b, or t to choose a vehicle type: ");
-    scanf("%c", type);
+    scanf("%c", &type);
 
-    printf("\nEnter number of hours parked: ");
-    scanf ("%f", *hrs);
-    
-    return type;
-}
-
-//===This function takes the car type and amount of time and
-//   returns the rate and dollar amount owed.===
-float parkingCharge (char type, float hrs, int *rate)
-{
-    //Local Definitions
-    float parkingCharge;
-    
-    //Statements
-    if (type == 'c')
-        {
-            parkingCharge = hrs * RATE_CAR;
-            *rate = RATE_CAR;
-        }
-    else if (type == 'b')
-    {
-        parkingCharge = hrs * RATE_BUS;
-        *rate = RATE_BUS;
-    }
-    else if (type == 't')
-    {
-        parkingCharge = hrs * RATE_TRUCK;
-        *rate = RATE_TRUCK;
-    }
-    else
+    if (type != 'c' || type != 'b' || type != 't')
     {
         printf ("\n\nInvalid vehicle type entered. Please start over!\n");
         exit (1);
     }
-        
-    return parkingCharge;
+    
+    
+    printf("\nEnter number of hours parked: ");
+    scanf ("%f", hrs);
+
+    if (*hrs < 0)
+    {
+        printf ("\n\nNumber of hours must be positive. Please start over!\n");
+        exit (1);
+    }
+    
+    return type;
+}
+
+
+//===This function takes the car type and amount of time and
+//   returns the dollar amount owed.===
+float parkingCharge (char type, float hrs)
+{
+    return hrs * getRate(type);
+}
+
+
+//===This function takes the vehicle type and returns the rate
+//   for that vehicle type.===
+int getRate (char type)
+{
+    if (type == 'c')
+    {
+        return RATE_CAR;
+    }
+    else if (type == 'b')
+    {
+        return RATE_BUS;
+    }
+    else
+    {
+        return RATE_TRUCK;
+    }
+}
+
+
+void printType (char type)
+{
+    if (type == 'c')
+    {
+        printf ("car");
+    }
+    else if (type == 'b')
+    {
+        printf ("bus");
+    }
+    else
+    {
+        printf ("truck");
+    }
+    
+    return;
 }

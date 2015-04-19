@@ -63,13 +63,13 @@ int getGuess ()
     
     //Statements
     scanf ("%d", &num2);
-    
-    if (num2 < 1 || num2 > 20)
-        {
-            printf("\nSorry, you entered an invalid number.");
-            printf("\nPlease start over.  Goodbye.\n\n");
-            exit (1);
-        }
+ 
+    while (num2 < 1 || num2 > 20)
+    {
+        printf("\nSorry, you entered an invalid number.");
+        printf("\nPlease enter an integer between 1 and 20: ");
+        scanf("%d", &num2);
+    }
     
     return num2;
 }
@@ -100,8 +100,8 @@ int checkGuess (int guess, int rand1)
 void congrats ()
 {
     printf("\n\n\tCongratulations! You did it.\n\n");
-    exit(1);
-
+    exit(EXIT_SUCCESS);
+    
     return;
 }
 

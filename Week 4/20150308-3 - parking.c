@@ -26,7 +26,8 @@
 
 
 int vehicleAndHrs (float *hrs);
-float parkingCharge (int type, float hrs, int *rate);
+float parkingCharge (int type, float hrs);
+int getRate (int type);
 
 int main ()
 {
@@ -38,7 +39,8 @@ int main ()
     
     //Statements
     type = vehicleAndHrs (&hrs);
-    totalOwed = parkingCharge (type, hrs, &rate);
+    totalOwed = parkingCharge (type, hrs);
+    rate = getRate(type);
     
     printf ("\nYou parked a ");
     if (type == 1)
@@ -69,14 +71,14 @@ int vehicleAndHrs (float *hrs)
     printf("\n\nEnter 1, 2, or 3 to choose a vehicle type: ");
     scanf("%d", &type);
 
-    if ((type != 1) && (type != 2) && (type != 3))
+    if (type < 1 || type > 3)
     {
         printf ("\n\nInvalid vehicle type entered. Please start over!\n");
         exit (1);
     }
     
     printf("\nEnter number of hours parked: ");
-    scanf ("%f", *hrs);
+    scanf ("%f", hrs);
     
     if (*hrs < 0)
     {
@@ -88,28 +90,27 @@ int vehicleAndHrs (float *hrs)
 }
 
 //===This function takes the car type and amount of time and
-//   returns the rate and dollar amount owed.===
-float parkingCharge (int type, float hrs, int *rate)
+//   returns the dollar amount owed.===
+float parkingCharge (int type, float hrs)
 {
-    //Local Definitions
-    float parkingCharge;
-    
-    //Statements
-    if (type == 1)
-        {
-            parkingCharge = hrs * RATE_CAR;
-            *rate = RATE_CAR;
-        }
-    else if (type == 2)
+    return hrs * getRate(type);
+}
+
+
+//===This function takes the vehicle type and returns the rate
+//   for that vehicle type.===
+
+int getRate (int type)
+{
+    switch (type)
     {
-        parkingCharge = hrs * RATE_BUS;
-        *rate = RATE_BUS;
+        case 1:
+            return RATE_CAR;
+            break;
+        case 2:
+            return RATE_BUS;
+            break;
+        case 3:
+            return RATE_TRUCK;
     }
-    else
-    {
-        parkingCharge = hrs * RATE_TRUCK;
-        *rate = RATE_TRUCK;
-    }
-    
-    return parkingCharge;
 }
