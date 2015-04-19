@@ -41,15 +41,32 @@ int main ()
 
     guess = getGuess();
     
-    guess = checkGuess(guess, rand1);
-    guess = checkGuess(guess, rand1);
-    guess = checkGuess(guess, rand1);
-    guess = checkGuess(guess, rand1);
-    
     if (guess == rand1)
         congrats ();
     else
-        sorry (rand1);
+        { guess = checkGuess(guess, rand1);
+        if (guess == rand1)
+            congrats ();
+            else
+            { guess = checkGuess(guess, rand1);
+                if (guess == rand1)
+                    congrats ();
+                else
+                { guess = checkGuess(guess, rand1);
+                    if (guess == rand1)
+                        congrats ();
+                    else
+                    { guess = checkGuess(guess, rand1);
+                        if (guess == rand1)
+                            congrats ();
+                        else
+                        {
+                            sorry(rand1);
+                        }
+                    }
+                }
+            }
+        }
 
     return 0;
 }
@@ -79,14 +96,12 @@ int getGuess ()
 //    and tells the user if it's correct, too low, or too high.=====
 int checkGuess (int guess, int rand1)
 {
-    if (guess == rand1)
-        congrats();
-    else if (guess < rand1)
+    if (guess < rand1)
         {
         printf("\tYour guess is low. Try again:\t");
         guess = getGuess();
         }
-    else
+    else if (guess > rand1)
         {
         printf("\tYour guess is high. Try again:\t");
         guess = getGuess();
@@ -100,7 +115,6 @@ int checkGuess (int guess, int rand1)
 void congrats ()
 {
     printf("\n\n\tCongratulations! You did it.\n\n");
-    exit(EXIT_SUCCESS);
     
     return;
 }
