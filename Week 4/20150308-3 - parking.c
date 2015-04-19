@@ -80,7 +80,7 @@ int vehicleAndHrs (float *hrs)
     printf("\nEnter number of hours parked: ");
     scanf ("%f", hrs);
     
-    if (*hrs < 0)
+    if (hrs < 0)
     {
         printf ("\n\nNumber of hours must be positive. Please start over!\n");
         exit (1);

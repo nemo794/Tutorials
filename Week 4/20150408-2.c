@@ -28,12 +28,8 @@ void day_of_week (int day);
 
 int main ()
 {
-    //Local Definitions
-    int day;
-    
-    //Statements
-    day = menu();
-    day_of_week (day);
+
+    day_of_week (menu());
     
     return 0;
 }
