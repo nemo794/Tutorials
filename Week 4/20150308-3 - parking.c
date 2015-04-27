@@ -47,8 +47,10 @@ int main ()
         printf("car ");
     else if (type == 2)
         printf("bus ");
-    else
+    else if (type == 3)
         printf("truck ");
+    else
+        printf("-1");
     
     printf ("for %4.2f hrs at $%d/hr and owe $%6.2f.\n\n", hrs, rate, totalOwed);
 
@@ -112,5 +114,7 @@ int getRate (int type)
             break;
         case 3:
             return RATE_TRUCK;
+        default:
+            return -1;
     }
 }

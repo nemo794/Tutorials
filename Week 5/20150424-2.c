@@ -100,13 +100,13 @@ void exerciseB ()
 void exerciseC ()
 {
 	//Local Definitons
-	int sum;
-	int looper;
+	int sum=0;
+	int looper=1;
 
 	//Statements
 	printf ("\n\nExercise C running....");
 
-	for (sum=0, looper=1; looper<=15; looper++)
+	for (; looper<=15; looper++)
 	{
 		sum+=looper;
 	}
