@@ -28,7 +28,7 @@ int main()
 {
 //Local Definitions
 int maxValue = 9;
-int num1=1;
+int num1;
 
 //Statements
 for(;maxValue>0;maxValue--)

@@ -150,21 +150,19 @@ void exerciseD ()
 void exerciseE ()
 {
 	//Local Definitons
-	int looper;
 	int i;
 	int sum;
 
 	//Statements
 	printf ("\n\nExercise E running....\n");
 
-	for(sum=1, i=1, looper=1; looper<=50; looper++)
+	for(sum=0, i=1; i<(50*3); i+=3)
 	{
 		printf("%d", i);
-		if(looper<50)
+		if(i<((50-1)*3))
 			printf(", ");
 		else
 			printf(".");
-		i+=3;
 		sum+=i;
 	}
 
