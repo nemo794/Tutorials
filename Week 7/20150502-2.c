@@ -9,7 +9,7 @@
 * Write a C Program that can create four different patterns of
 * different sizes, as determined by the number of columns or rows.
 * 
-* PLEASE SEE .PDF IN FOLDER FOR COMPLETE INSTRUCTIONS.
+* PLEASE SEE .JPGs IN FOLDER FOR COMPLETE INSTRUCTIONS.
 * THANK YOU!!!  :) 
 *
 */
