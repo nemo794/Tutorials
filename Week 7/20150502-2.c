@@ -125,15 +125,20 @@ printf("\n\n");
 
 while (row<=size)
 	{
+//prints the 0's at the beginning of the line.
+	for (looper=0; looper<(row-1); looper++)
+		printf("$");
+
+//prints the digit of the size.
 	printf("%d",size);
 
+//prints the 0's at the end of the line
 	for (looper=(size-row); looper>0; looper--)
 		printf("$");
 
+//moves to next line.
 	printf("\n");
 	row++;
-	for (looper=0; looper<(row-1) && row!=(size+1); looper++)
-		printf("$");
 	}
 
 printf("\n\n");

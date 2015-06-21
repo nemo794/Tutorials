@@ -50,7 +50,7 @@ return 0;
 *
 */
 
-void printPattern (height, width)
+void printPattern (int height, int width)
 {
 
 printf("\n\n");
@@ -68,7 +68,7 @@ return;
 
 /* Given the width, this function prints a row of "=".
 */
-void printEquals (width)
+void printEquals (int width)
 {
 while (width>0)
 	{
@@ -84,7 +84,7 @@ return;
 /* Given the width, this function prints a row of "*    *".
 */
 
-void printAsterisks (width)
+void printAsterisks (int width)
 {
 printf("*");
 do
